@@ -24,28 +24,31 @@ def scrape_website(url):
         return html
     except Exception as e:
         print(f"Error loading website: {e}")
-        raise e
+        return None
     finally:
         driver.quit()
         print("Browser closed")
 
 def extract_text(html):
-    soup = BeautifulSoup(html, "html.parser")
-    body = soup.body
-    return str(body) if body else ""
+  soup = BeautifulSoup(html, "html.parser")
+  body = soup.body
+
+  if body:
+    return str(body)
+  return ""
 
 def clean_text(text):
-    soup = BeautifulSoup(text, "html.parser")
+  soup = BeautifulSoup(text, "html.parser")
 
-    for script_and_style in soup(["script", "style"]):
-        script_and_style.extract()
+  for script_and_style in soup(["script", "style"]):
+    script_and_style.extract()
 
-    clean_text = soup.get_text(separator="\n")
-    clean_text = "\n".join(line.strip() for line in clean_text.splitlines() if line.strip())
+  clean_text = soup.get_text(separator="\n")
+  clean_text = "\n".join(line.strip() for line in clean_text.splitlines() if line.strip())
 
-    return clean_text
+  return clean_text
 
 def split_into_sections(text, max_length=6000):
-    return [
-        text[i: i + max_length] for i in range(0, len(text), max_length)
-    ] 
+  return [
+    text[i: i + max_length] for i in range(0, len(text), max_length)
+  ]

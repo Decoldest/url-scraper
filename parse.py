@@ -22,22 +22,23 @@ Content to analyze: {dom_content}
 """
 
 def gemini_parse(dom_content, parse_instructions):
-    parsed_result = []
-    
-    for i, section in enumerate(dom_content, start=1):
+    parsed_results = []
+
+    for i, chunk in enumerate(dom_content, start=1):
+        print("chunk: ", chunk)
         prompt = template.format(
-            dom_content=section,
+            dom_content=chunk,
             parse_instructions=parse_instructions
         )
         
-        try:
-            response = model.generate_content(prompt)
-            result = response.text.strip()
-            print(f"Section {i}: {result}")
-            if result:
-                parsed_result.append(result)
-        except Exception as e:
-            print(f"Error processing section {i}: {e}")
-            continue
-    
-    return "\n".join(parsed_result)
+        response = model.generate_content(prompt)
+        print(response)
+        result = response.text.strip()
+        
+        if result:
+            parsed_results.append(result)
+        
+    print(parsed_results)
+
+
+    return "\n".join(parsed_results)
