@@ -1,24 +1,33 @@
-import selenium.webdriver as webdriver
+from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
+from selenium.webdriver.chrome.options import Options
+
 def scrape_website(url):
-  print("Launching Chrome browser...")
+    print("Launching Chrome browser...")
+    
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")  # Run in headless mode
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    
+    driver = webdriver.Chrome(
+        service=Service(ChromeDriverManager().install()),
+        options=chrome_options
+    )
 
-  chrome_driver_path = "./chromedriver"
-  options = webdriver.ChromeOptions()
-  driver = webdriver.Chrome(service=Service(chrome_driver_path), options=options)
-
-  try:
-    driver.get(url)
-    print("Website loaded successfully")
-    html = driver.page_source
-
-    return html
-  except  Exception as e:
-    print(f"Error loading website: {e}")
-  finally:
-    driver.quit()
-    print("Browser closed")
+    try:
+        driver.get(url)
+        print("Website loaded successfully")
+        html = driver.page_source
+        return html
+    except Exception as e:
+        print(f"Error loading website: {e}")
+        return None
+    finally:
+        driver.quit()
+        print("Browser closed")
 
 def extract_text(html):
   soup = BeautifulSoup(html, "html.parser")

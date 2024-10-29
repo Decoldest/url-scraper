@@ -1,8 +1,7 @@
-streamlit 
-langchain 
-langchain_ollama
+streamlit
 selenium
 beautifulsoup4
-lxml 
-html5lib
+openai
 python-dotenv
+webdriver_manager
+google-generativeai
