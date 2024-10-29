@@ -1,6 +1,6 @@
 import google.generativeai as genai
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
@@ -34,10 +34,10 @@ def gemini_parse(dom_content, parse_instructions):
             response = model.generate_content(prompt)
             result = response.text.strip()
             print(f"Section {i}: {result}")
-            if result:
+            if result:  # Only append non-empty results
                 parsed_result.append(result)
         except Exception as e:
             print(f"Error processing section {i}: {e}")
             continue
     
-    return "\n".join(parsed_result)
+    return "\n".join(parsed_result) 
