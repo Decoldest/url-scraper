@@ -62,7 +62,7 @@ export default function WebsiteAnalyzer() {
     const analysisInstructions =
       analysisType === "custom"
         ? instructions
-        : "Analyze the content and classify the target visitors or audience of this website based on their interests, industry, or demographic.";
+        : "Analyze the content and classify the target visitors or audience of this website based on their interests, industry, or demographic. Then, create a multiple choice (A, B, C, D) question based on this demographic.";
 
     dispatch(analyzeWebsite({ content, instructions: analysisInstructions }));
   };

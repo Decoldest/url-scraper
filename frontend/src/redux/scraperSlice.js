@@ -2,6 +2,12 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { scrapeWebsite, analyzeContent } from "../services/api";
 
 export const scrapeUrl = createAsyncThunk("scraper/scrapeUrl", async (url) => {
+  // URL validation
+  const urlPattern = /^https:\/\/.+\.com$/;
+  if (!urlPattern.test(url)) {
+    throw new Error("Invalid URL format. Please use 'https://example.com'.");
+  }
+  
   const response = await scrapeWebsite(url);
   return response;
 });

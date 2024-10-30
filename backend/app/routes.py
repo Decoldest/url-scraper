@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, send_from_directory
 from app.services.scraper import scrape_website, extract_text, clean_text, split_into_sections
 from app.services.analyzer import gemini_parse
 import os
@@ -59,3 +59,4 @@ def analyze():
             'success': False,
             'error': str(e)
         }), 500 
+

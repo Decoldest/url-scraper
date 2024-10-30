@@ -24,17 +24,21 @@ Content to analyze: {dom_content}
 def gemini_parse(dom_content, parse_instructions):
     parsed_results = []
 
-    for chunk in dom_content:
+    for i, chunk in enumerate(dom_content, start=1):
+        print("chunk: ", chunk)
         prompt = template.format(
             dom_content=chunk,
             parse_instructions=parse_instructions
         )
         
         response = model.generate_content(prompt)
+        print(response)
         result = response.text.strip()
         
         if result:
             parsed_results.append(result)
+        
     print(parsed_results)
+
 
     return "\n".join(parsed_results)
