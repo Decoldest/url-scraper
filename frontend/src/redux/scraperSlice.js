@@ -11,7 +11,7 @@ export const analyzeWebsite = createAsyncThunk(
   async ({ content, instructions }) => {
     const response = await analyzeContent(content, instructions);
     return response;
-  },
+  }
 );
 
 const scraperSlice = createSlice({
@@ -27,6 +27,7 @@ const scraperSlice = createSlice({
       state.error = null;
     },
     clearAnalysis: (state) => {
+      state.content = null;
       state.analysis = null;
     },
   },
