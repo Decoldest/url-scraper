@@ -7,7 +7,7 @@ load_dotenv()
 
 # Initialize Gemini
 genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 template = """
 You are tasked with extracting specific information from the following text content. 

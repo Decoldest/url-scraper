@@ -7,7 +7,7 @@ load_dotenv()
 
 # Initialize Gemini
 genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 template = """
 You are tasked with extracting specific information from the following text content. 
@@ -15,7 +15,7 @@ Please follow these instructions carefully:
 
 1. Extract Information: Only extract the information that directly matches this description: {parse_instructions}
 2. No Extra Content: Do not include any additional text, comments, or explanations in your response
-3. Empty Response: If no information matches the description, return an empty string ('')
+3. Empty Response: If no information matches the description, return an empty string ('Could not generate')
 4. Direct Data Only: Your output should contain only the data that is explicitly requested, with no other text
 
 Content to analyze: {dom_content}

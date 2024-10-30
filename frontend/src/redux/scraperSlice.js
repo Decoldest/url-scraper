@@ -3,11 +3,11 @@ import { scrapeWebsite, analyzeContent } from "../services/api";
 
 export const scrapeUrl = createAsyncThunk("scraper/scrapeUrl", async (url) => {
   // URL validation
-  const urlPattern = /^https:\/\/.+\.com$/;
+  const urlPattern = /^https:\/\/[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+([\/\w .-]*)*\/?$/i;
   if (!urlPattern.test(url)) {
     throw new Error("Invalid URL format. Please use 'https://example.com'.");
   }
-  
+
   const response = await scrapeWebsite(url);
   return response;
 });
@@ -17,7 +17,7 @@ export const analyzeWebsite = createAsyncThunk(
   async ({ content, instructions }) => {
     const response = await analyzeContent(content, instructions);
     return response;
-  }
+  },
 );
 
 const scraperSlice = createSlice({
@@ -50,7 +50,7 @@ const scraperSlice = createSlice({
       })
       .addCase(scrapeUrl.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message || 'Failed to scrape website';
+        state.error = action.error.message || "Failed to scrape website";
       })
       .addCase(analyzeWebsite.pending, (state) => {
         state.loading = true;
@@ -63,7 +63,7 @@ const scraperSlice = createSlice({
       })
       .addCase(analyzeWebsite.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message || 'Failed to analyze content';
+        state.error = action.error.message || "Failed to analyze content";
       });
   },
 });

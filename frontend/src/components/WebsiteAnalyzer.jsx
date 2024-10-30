@@ -62,7 +62,7 @@ export default function WebsiteAnalyzer() {
     const analysisInstructions =
       analysisType === "custom"
         ? instructions
-        : "Analyze the content and classify the target visitors or audience of this website based on their interests, industry, or demographic. Then, create a multiple choice (A, B, C, D) question based on this demographic.";
+        : "Examine the website content and formulate a multiple-choice question (options A, B, C, D) that reflects the interests, industry, or demographics of the intended visitors or audience";
 
     dispatch(analyzeWebsite({ content, instructions: analysisInstructions }));
   };
@@ -134,7 +134,7 @@ export default function WebsiteAnalyzer() {
                   <FormControlLabel
                     value="classify"
                     control={<Radio color="primary" />}
-                    label="Classify Visitors"
+                    label="Generate Multiple Choice"
                     disabled={loading}
                   />
                 </RadioGroup>
