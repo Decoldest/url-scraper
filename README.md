@@ -5,6 +5,7 @@ A web scraper that uses Google Gemini ai to analyze the resulting data.
 
 ## Prerequisites
 Before you begin, ensure you have met the following requirements:
+- Google Chrome Browser
 - Python 3.9 or higher
 - pip (Python package installer)
 - Google Gemini API Key
