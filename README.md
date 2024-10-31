@@ -1,7 +1,7 @@
 # Url Scraper
 
 ## Description
-A web scraper that uses ai to analyze the resulting data.
+A web scraper that uses Google Gemini ai to analyze the resulting data.
 
 ## Prerequisites
 Before you begin, ensure you have met the following requirements:
@@ -20,7 +20,7 @@ git clone https://github.com/Decoldest/url-scraper.git
 
 ## Installing Dependencies
 After cloning the repository, navigate into the project directory:
-cd your-repository-name
+cd url-scraper
 
 ### Creating a dotenv file
 Create a .env file:
@@ -44,6 +44,8 @@ To create a new virtual environment, follow these steps:
    ```
    venv\Scripts\activate
    ```
+Navigate to /backend:
+cd backend
 
 Then, install the required dependencies using pip:
 pip install -r requirements.txt
@@ -63,7 +65,8 @@ http://127.0.0.1:5000
 4. Click Analyze
 
 ## Streamlit Version
-To use the streamlit app navigate to the root directory and run the following command:
+To use the streamlit app navigate to the root directory and run the following commands:
+npm install requirements.txt
 streamlit run main.py
 
 ## Limitations
