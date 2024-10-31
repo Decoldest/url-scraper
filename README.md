@@ -32,6 +32,8 @@ GEMINI_API_KEY=yourgeminiapikey
 To create a new virtual environment, follow these steps:
 
 1. In your project directory, run the following command:
+python -m venv venv
+
 2. Activate the virtual environment:
    - **For Unix or MacOS:**
    ```
