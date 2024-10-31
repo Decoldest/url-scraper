@@ -16,7 +16,7 @@ To clone this repository, follow these steps:
 2. Navigate to the directory where you want to clone the repository.
 3. Run the following command:
 
-git clone https://github.com/decoldest/url-scraper.git
+git clone https://github.com/Decoldest/url-scraper.git
 
 ## Installing Dependencies
 After cloning the repository, navigate into the project directory:
@@ -61,6 +61,10 @@ http://127.0.0.1:5000
 2. Click Scrape Button and wait for scraping process
 3. Enter a prompt in the input box or select the default option
 4. Click Analyze
+
+## Streamlit Version
+To use the streamlit app navigate to the root directory and run the following command:
+streamlit run main.py
 
 ## Limitations
 This scraper does not bypass captchas or other human verifications.
