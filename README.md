@@ -17,17 +17,29 @@ To clone this repository, follow these steps:
 2. Navigate to the directory where you want to clone the repository.
 3. Run the following command:
 
-git clone https://github.com/Decoldest/url-scraper.git
+   ```
+   git clone https://github.com/Decoldest/url-scraper.git
+   ```
+
 
 ## Installing Dependencies
 After cloning the repository, navigate into the project directory:
-cd url-scraper
+   ```
+   cd url-scraper
+   ```
+
 
 ### Creating a dotenv file
 Create a .env file:
-touch .env
+   ```
+   touch .env
+   ```
+
 Add your Gemini API key to .env:
-GEMINI_API_KEY=yourgeminiapikey
+   ```
+   GEMINI_API_KEY=yourgeminiapikey
+   ```
+
 
 ### Creating a Virtual Environment
 To create a new virtual environment, follow these steps:
@@ -46,14 +58,23 @@ To create a new virtual environment, follow these steps:
    venv\Scripts\activate
    ```
 Navigate to /backend:
-cd backend
+   ```
+   cd backend
+   ```
+
 
 Then, install the required dependencies using pip:
-pip install -r requirements.txt
+   ```
+   pip install -r requirements.txt
+   ```
+
 
 ## Running the Project
 To run the project, use the following command:
-python src/backend/main.py OR python3 src/backend/main.py
+   ```
+   python src/backend/main.py OR python3 src/backend/main.py
+   ```
+
 
 ## Running the Project
 Access the development server in your browser
@@ -67,8 +88,10 @@ http://127.0.0.1:5000
 
 ## Streamlit Version
 To use the streamlit app navigate to the root directory and run the following commands:
-npm install requirements.txt
-streamlit run main.py
+   ```
+   npm install requirements.txt
+   streamlit run main.py
+   ```
 
 ## Limitations
 This scraper does not bypass captchas or other human verifications.
